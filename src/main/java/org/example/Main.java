@@ -64,7 +64,7 @@ public class Main {
 
         // 原来的定时器逻辑不变
         new Timer(1000, e -> tick(mainPanel,jFrame)).start();
-
+        new Timer(30000, e -> tick1()).start();
 
     }
 
@@ -76,7 +76,6 @@ public class Main {
             JLabel infoLabel = new JLabel("My Initial Text");
             infoLabel.setText("<html>"+s.getInfo()+"<html>");
             row.add(infoLabel);
-            System.out.println(s.isnormal());
             if(!s.isnormal()){
                 row.setBackground(Color.RED);
             }
@@ -87,6 +86,14 @@ public class Main {
         jFrame.pack();
         jFrame.setVisible(true);
 
+    }
+
+    private void tick1(){
+        for (Sensor s : sensors) {
+         System.out.println(s.getInfo());
+        }
+        System.out.println(environmentalSystem.getCTScannerStatus());
+        System.out.println(environmentalSystem.getUltrasoundScannerStatus());
     }
 
 
