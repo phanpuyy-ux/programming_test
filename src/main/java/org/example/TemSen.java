@@ -2,6 +2,8 @@ package org.example;
 
 import Feeds.EnvironmentalSystem;
 
+import java.text.DecimalFormat;
+
 public class TemSen extends Sensor{
     private int WardID;
     private float Temp;
@@ -20,14 +22,18 @@ public class TemSen extends Sensor{
     }
 
     public String getInfo(){
+        double num = getTem();
+        DecimalFormat df = new DecimalFormat("#.0"); // "#.0"表示保留一位小数
+        String result = df.format(num);
+
         if(WardID==0){
-            return "Ward Name:"+WardID+"Current Temperature"+String.valueOf(getTem())+"Ideal Temperatrue:23"+"heating:"+heating.getStatus();
+            return "Ward Name:"+WardID+"Current Temperature"+String.valueOf(result)+"Ideal Temperatrue:23"+"heating:"+heating.getStatus();
         }
         else if(WardID==1){
-            return "Ward Name:"+WardID+"Current Temperature"+String.valueOf(getTem())+"Ideal Temperatrue:22"+"heating:"+heating.getStatus();
+            return "Ward Name:"+WardID+"Current Temperature"+String.valueOf(result)+"Ideal Temperatrue:22"+"heating:"+heating.getStatus();
         }
         else if(WardID==2){
-            return "Ward Name:"+WardID+"Current Temperature"+String.valueOf(getTem())+"Ideal Temperatrue:20"+"heating:"+heating.getStatus();
+            return "Ward Name:"+WardID+"Current Temperature"+String.valueOf(result)+"Ideal Temperatrue:20"+"heating:"+heating.getStatus();
         };
         return null;
     }

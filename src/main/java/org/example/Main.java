@@ -62,7 +62,6 @@ public class Main {
         jFrame.pack();
         jFrame.setVisible(true);
 
-        // 原来的定时器逻辑不变
         new Timer(1000, e -> tick(mainPanel,jFrame)).start();
         new Timer(30000, e -> tick1()).start();
 
@@ -84,7 +83,7 @@ public class Main {
 
         jFrame.add(panel);
         jFrame.pack();
-        jFrame.setVisible(true);
+
 
     }
 
