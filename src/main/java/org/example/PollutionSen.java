@@ -21,5 +21,14 @@ public class PollutionSen extends Sensor{
         return "Pollution Level"+String.valueOf(getPollution())+"airpurifier:"+airpurifier.getStatus();
     }
 
+    @Override
+    public boolean isnormal(){
+        if(getPollution()>5){
+            return false;
+        }
+        return true;
+    }
+
+
 
 }

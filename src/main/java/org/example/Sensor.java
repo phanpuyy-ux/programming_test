@@ -12,4 +12,6 @@ public abstract class Sensor {
 
     public abstract String getInfo();
 
+    public abstract boolean isnormal();
+
 }

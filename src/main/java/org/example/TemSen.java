@@ -16,7 +16,6 @@ public class TemSen extends Sensor{
 
     public float getTem(){
         this.Temp = environmentalSystem.getTempFeed().getTemperature(WardID);
-        System.out.println(Temp);
         return Temp;
     }
 
@@ -32,6 +31,21 @@ public class TemSen extends Sensor{
         };
         return null;
     }
+
+    public boolean isnormal(){
+        if(WardID==0&& (getTem()>23.5 || getTem()<22.5)){
+            return false;
+        }
+        if(WardID==1&& (getTem()>21.5 || getTem()<22.5)){
+            return false;
+        }
+        if(WardID==2&& (getTem()>19.5 || getTem()<20.5)){
+            return false;
+        }
+        return true;
+    }
+
+
 
 
 

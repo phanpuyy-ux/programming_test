@@ -73,13 +73,15 @@ public class Main {
 
         for (Sensor s : sensors) {
             JPanel row = new JPanel();
-
             JLabel infoLabel = new JLabel("My Initial Text");
             infoLabel.setText("<html>"+s.getInfo()+"<html>");
             row.add(infoLabel);
+            System.out.println(s.isnormal());
+            if(!s.isnormal()){
+                row.setBackground(Color.RED);
+            }
             panel.add(row);
         }
-        panel.repaint();
 
         jFrame.add(panel);
         jFrame.pack();

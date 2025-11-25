@@ -28,5 +28,13 @@ public class HumSen extends Sensor{
         return "Inside Humidity:"+String.valueOf(getInsHum())+"Outside Humidity:"+ String.valueOf(getOutHum())+"diff:"+String.valueOf(getInsHum()-getOutHum())+"dehumidifier:"+dehumidifier.getStatus();
     }
 
+    @Override
+    public boolean isnormal(){
+        if(getInsHum()>1.1*getOutHum()){
+            return false;
+        }
+        return true;
+    }
+
 
 }
